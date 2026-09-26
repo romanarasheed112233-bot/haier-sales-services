@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Haier Sales &amp; Services — Product Information and Sales Assistance</title>
+<meta name="description" content="Haier home appliances: product information, features, specifications, model comparison, price and offers, warranty guidance and sales assistance by Romana Rasheed.">
+<meta name="theme-color" content="#0e2a47">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-900:#0e2a47;
+    --navy-700:#16385c;
+    --cream:#f7f5f0;
+    --paper:#ffffff;
+    --accent:#2f9e6a;
+    --accent-dark:#1f7a52;
+    --ink:#1b2430;
+    --ink-soft:#4a5568;
+    --line:#e3ddd0;
+    --radius:10px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth; scroll-padding-top:76px;}
+  body{
+    margin:0;
+    font-family:'Inter',sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.6;
+  }
+  h1,h2,h3{font-family:'Sora',sans-serif; margin:0 0 .5em; color:var(--navy-900); line-height:1.2;}
+  p{margin:0 0 1em; color:var(--ink-soft); max-width:60ch;}
+  a{color:inherit;}
+  img{max-width:100%; display:block;}
+  section{padding:80px 24px;}
+  .wrap{max-width:1100px; margin:0 auto;}
+  .eyebrow{font-size:.85rem; color:var(--accent-dark); font-weight:600; margin-bottom:.4em;}
+
+  /* Header */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:var(--navy-900);
+    color:#fff;
+  }
+  .nav{
+    max-width:1100px; margin:0 auto; padding:14px 24px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+  }
+  .brand{font-family:'Sora',sans-serif; font-weight:700; font-size:1.1rem; color:#fff; text-decoration:none;}
+  .nav-links{display:flex; gap:22px; list-style:none; margin:0; padding:0; flex-wrap:wrap;}
+  .nav-links a{text-decoration:none; font-size:.95rem; color:#dce6f0; font-weight:500;}
+  .nav-links a:hover{color:#fff;}
+  .btn{
+    display:inline-block; padding:11px 22px; border-radius:999px;
+    font-weight:600; font-size:.95rem; text-decoration:none; border:1.5px solid transparent;
+  }
+  .btn-accent{background:var(--accent); color:#fff;}
+  .btn-accent:hover{background:var(--accent-dark);}
+  .btn-outline{background:transparent; color:#fff; border-color:rgba(255,255,255,.5);}
+  .btn-outline:hover{border-color:#fff;}
+  .btn-navy{background:var(--navy-900); color:#fff;}
+  .btn-navy:hover{background:var(--navy-700);}
+
+  /* Hero */
+  .hero{
+    background:linear-gradient(180deg,var(--navy-900) 0%, var(--navy-900) 60%, var(--cream) 60%);
+    padding-top:64px;
+  }
+  .hero-inner{
+    max-width:1100px; margin:0 auto; padding:56px 24px 0;
+    display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:end;
+  }
+  .hero h1{color:#fff; font-size:clamp(2rem,4vw,3rem); max-width:14ch;}
+  .hero p{color:#c9d6e3; max-width:46ch;}
+  .hero-actions{display:flex; gap:14px; flex-wrap:wrap; margin-top:1.4em;}
+  .lookup-card{
+    background:var(--paper); border-radius:var(--radius);
+    padding:28px; box-shadow:0 18px 40px rgba(14,42,71,.18);
+    margin-bottom:-64px;
+  }
+  .lookup-card h3{font-size:1.05rem;}
+  .lookup-row{display:flex; gap:10px; margin-top:14px; flex-wrap:wrap;}
+  .lookup-row input{
+    flex:1; min-width:180px; padding:12px 14px; border-radius:8px;
+    border:1.5px solid var(--line); font-family:inherit; font-size:.95rem;
+  }
+
+  /* Section headers */
+  .section-head{max-width:60ch; margin-bottom:44px;}
+  .section-head h2{font-size:clamp(1.5rem,2.6vw,2.1rem);}
+
+  /* About */
+  .about-grid{display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start;}
+  .why-list{list-style:none; margin:0; padding:0; display:grid; gap:14px;}
+  .why-list li{
+    display:flex; gap:12px; align-items:flex-start; color:var(--ink); font-weight:500;
+  }
+  .why-list li::before{
+    content:""; flex:none; width:8px; height:8px; border-radius:50%;
+    background:var(--accent); margin-top:8px;
+  }
+
+  /* Products */
+  .product-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .product-card{
+    background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);
+    padding:26px; transition:border-color .15s, transform .15s;
+  }
+  .product-card:hover{border-color:var(--accent); transform:translateY(-3px);}
+  .product-card h3{font-size:1.1rem;}
+  .product-card p{font-size:.93rem;}
+  .product-card a.link{
+    font-weight:600; font-size:.9rem; color:var(--accent-dark); text-decoration:none;
+  }
+  .product-card a.link:hover{text-decoration:underline;}
+
+  /* Services */
+  .service-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px;}
+  .service-card{
+    background:var(--paper); border-radius:var(--radius); padding:22px;
+    border:1px solid var(--line);
+  }
+  .service-card h3{font-size:1rem;}
+  .service-card p{font-size:.9rem; margin:0;}
+
+  /* How to order — this is a real sequence, so numbering is intentional */
+  .steps{counter-reset:step; display:grid; gap:0; max-width:700px;}
+  .step{
+    counter-increment:step; display:grid; grid-template-columns:44px 1fr; gap:18px;
+    padding:22px 0; border-bottom:1px solid var(--line);
+  }
+  .step:last-child{border-bottom:none;}
+  .step::before{
+    content:counter(step);
+    width:44px; height:44px; border-radius:50%;
+    background:var(--navy-900); color:#fff; font-family:'Sora',sans-serif; font-weight:700;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .step h3{font-size:1.05rem; margin-bottom:.2em;}
+  .step p{margin:0; font-size:.95rem;}
+
+  /* Contact */
+  .contact-section{background:var(--navy-900); color:#fff;}
+  .contact-section .section-head h2{color:#fff;}
+  .contact-section .section-head p{color:#c9d6e3;}
+  .contact-grid{display:grid; grid-template-columns:.9fr 1.1fr; gap:48px;}
+  .contact-info a{color:#fff; text-decoration:none; font-weight:600;}
+  .contact-info .row{margin-bottom:18px;}
+  .contact-info .label{font-size:.85rem; color:#a9bdd0; margin-bottom:2px;}
+  .social-row{display:flex; gap:12px; margin-top:22px;}
+  .social-row a{
+    width:40px; height:40px; border-radius:50%; border:1.5px solid rgba(255,255,255,.35);
+    display:flex; align-items:center; justify-content:center; text-decoration:none;
+    font-size:.85rem; font-weight:700;
+  }
+  .social-row a:hover{border-color:#fff;}
+
+  form.inquiry{
+    background:var(--paper); border-radius:var(--radius); padding:28px;
+    display:grid; gap:14px;
+  }
+  form.inquiry label{font-size:.85rem; font-weight:600; color:var(--ink); display:block; margin-bottom:5px;}
+  form.inquiry input, form.inquiry select, form.inquiry textarea{
+    width:100%; padding:11px 13px; border-radius:8px; border:1.5px solid var(--line);
+    font-family:inherit; font-size:.95rem; color:var(--ink);
+  }
+  .field-row{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  form.inquiry textarea{min-height:90px; resize:vertical;}
+
+  /* Footer */
+  footer{padding:40px 24px; text-align:center; background:var(--navy-900); border-top:1px solid rgba(255,255,255,.12);}
+  footer p{color:#9fb3c8; font-size:.85rem; max-width:60ch; margin:0 auto .6em;}
+  .fab{
+    position:fixed; right:20px; bottom:20px; z-index:60;
+    background:var(--accent); color:#fff; text-decoration:none;
+    padding:13px 20px; border-radius:999px; font-weight:600;
+    box-shadow:0 10px 24px rgba(47,158,106,.4);
+  }
+
+  @media (max-width:860px){
+    .nav-links{display:none;}
+    .hero-inner, .about-grid, .contact-grid{grid-template-columns:1fr;}
+    .product-grid{grid-template-columns:1fr 1fr;}
+    .service-grid{grid-template-columns:1fr 1fr;}
+    .field-row{grid-template-columns:1fr;}
+  }
+  @media (max-width:560px){
+    .product-grid, .service-grid{grid-template-columns:1fr;}
+    section{padding:56px 20px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a class="brand" href="#home">Haier Sales &amp; Services</a>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#services">Sales &amp; Services</a></li>
+      <li><a href="#how-to-order">How to Order</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ul>
+    <a class="btn btn-outline" href="https://wa.me/923446664004" target="_blank" rel="noopener">WhatsApp</a>
+  </nav>
+</header>
+
+<section id="home" class="hero">
+  <div class="hero-inner">
+    <div>
+      <h1>Smart Appliances. Better Living.</h1>
+      <p>Explore Haier home appliances with detailed product information, features, specifications, warranty details and sales assistance.</p>
+      <div class="hero-actions">
+        <a class="btn btn-accent" href="#products">View Products</a>
+        <a class="btn btn-outline" href="https://wa.me/923446664004?text=Hello%2C%20I%20would%20like%20information%20about%20Haier%20products." target="_blank" rel="noopener">Contact Us on WhatsApp</a>
+      </div>
+    </div>
+    <div class="lookup-card">
+      <h3>Send us the model</h3>
+      <p style="font-size:.9rem; margin:0;">Type the product name or model number and we will reply on WhatsApp with the available information.</p>
+      <form class="lookup-row" onsubmit="event.preventDefault(); var q=document.getElementById('modelQuery').value; window.open('https://wa.me/923446664004?text=' + encodeURIComponent('Hello, I would like information about: ' + q), '_blank');">
+        <input id="modelQuery" type="text" placeholder="Product name or model" required>
+        <button class="btn btn-navy" type="submit">Chat on WhatsApp</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section id="about" style="padding-top:120px;">
+  <div class="wrap about-grid">
+    <div>
+      <p class="eyebrow">About us</p>
+      <h2>Welcome to Haier Sales &amp; Services</h2>
+      <p>My name is Romana Rasheed. We help customers explore Haier home appliances and understand their features, specifications, models, warranty information and available offers before making a purchase.</p>
+      <p>Our goal is to make it easier for customers to choose the right Haier appliance according to their needs and budget.</p>
+    </div>
+    <ul class="why-list">
+      <li>Genuine product information</li>
+      <li>Product features and specifications</li>
+      <li>Model comparison</li>
+      <li>Sales assistance</li>
+      <li>Price and offer information</li>
+      <li>Warranty guidance</li>
+      <li>Customer support</li>
+    </ul>
+  </div>
+</section>
+
+<section id="products">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Our products</p>
+      <h2>Select a category to see the models</h2>
+      <p>Each category includes full features and specifications. To order, just message us on WhatsApp.</p>
+    </div>
+    <div class="product-grid">
+      <div class="product-card">
+        <h3>Haier LED TVs</h3>
+        <p>Modern features, smart connectivity and excellent entertainment options.</p>
+        <a class="link" href="https://wa.me/923446664004?text=Hello%2C%20I%20would%20like%20information%20about%20Haier%20LED%20TVs." target="_blank" rel="noopener">Ask about LED TVs →</a>
+      </div>
+      <div class="product-card">
+        <h3>Haier Refrigerators</h3>
+        <p>Efficient cooling, convenient storage and modern home living.</p>
+        <a class="link" href="https://wa.me/923446664004?text=Hello%2C%20I%20would%20like%20information%20about%20Haier%20Refrigerators." target="_blank" rel="noopener">Ask about Refrigerators →</a>
+      </div>
+      <div class="product-card">
+        <h3>Haier Washing Machines</h3>
+        <p>Different capacities, washing programs and smart features.</p>
+        <a class="link" href="https://wa.me/923446664004?text=Hello%2C%20I%20would%20like%20information%20about%20Haier%20Washing%20Machines." target="_blank" rel="noopener">Ask about Washing Machines →</a>
+      </div>
+      <div class="product-card">
+        <h3>Haier Air Conditioners</h3>
+        <p>Cooling features, energy-efficient technology and modern designs.</p>
+        <a class="link" href="https://wa.me/923446664004?text=Hello%2C%20I%20would%20like%20information%20about%20Haier%20Air%20Conditioners." target="_blank" rel="noopener">Ask about ACs →</a>
+      </div>
+      <div class="product-card">
+        <h3>Haier Kitchen Hoods</h3>
+        <p>Powerful airflow and modern designs for your kitchen.</p>
+        <a class="link" href="https://wa.me/923446664004?text=Hello%2C%20I%20would%20like%20information%20about%20Haier%20Kitchen%20Hoods." target="_blank" rel="noopener">Ask about Kitchen Hoods →</a>
+      </div>
+      <div class="product-card">
+        <h3>Haier Water Dispensers</h3>
+        <p>Models designed for convenient everyday use.</p>
+        <a class="link" href="https://wa.me/923446664004?text=Hello%2C%20I%20would%20like%20information%20about%20Haier%20Water%20Dispensers." target="_blank" rel="noopener">Ask about Water Dispensers →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services" style="background:var(--paper);">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Sales &amp; services</p>
+      <h2>Everything you need before and after your purchase</h2>
+    </div>
+    <div class="service-grid">
+      <div class="service-card"><h3>Product Information</h3><p>Detailed information about products, models, features and specifications.</p></div>
+      <div class="service-card"><h3>Model Comparison</h3><p>Compare Haier models to choose according to your requirements.</p></div>
+      <div class="service-card"><h3>Sales Assistance</h3><p>Need help selecting a product? We provide guidance and support.</p></div>
+      <div class="service-card"><h3>Price &amp; Offers</h3><p>Ask about current prices, promotions and available offers.</p></div>
+      <div class="service-card"><h3>Delivery Information</h3><p>Information about product delivery and order processing.</p></div>
+      <div class="service-card"><h3>Warranty Guidance</h3><p>Understand the available warranty for your selected product.</p></div>
+      <div class="service-card"><h3>After-Sales Guidance</h3><p>Guidance regarding service and support after your purchase.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="how-to-order">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">How to order</p>
+      <h2>Five simple steps</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div><h3>Choose Your Product</h3><p>Browse our Haier products and select the model you are interested in.</p></div></div>
+      <div class="step"><div><h3>Contact Us</h3><p>Click WhatsApp / Contact Us and send us the product model.</p></div></div>
+      <div class="step"><div><h3>Get Product Details</h3><p>We will provide the available product information, price and offer details.</p></div></div>
+      <div class="step"><div><h3>Place Your Order</h3><p>Once you are satisfied with the product, proceed with the purchase.</p></div></div>
+      <div class="step"><div><h3>Get Your Product</h3><p>Your order will be processed and delivered according to the applicable arrangements.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact-section">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow" style="color:#8fd8b3;">Contact us</p>
+      <h2>Romana Rasheed</h2>
+      <p>For Haier product information, prices, offers, model comparison and sales assistance, please contact us.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="row">
+          <div class="label">Phone / WhatsApp</div>
+          <a href="tel:+923446664004">03446664004</a>
+        </div>
+        <div class="row">
+          <div class="label">Email</div>
+          <a href="mailto:romanarasheed112233@gmail.com">romanarasheed112233@gmail.com</a>
+        </div>
+        <div class="social-row">
+          <a href="https://wa.me/923446664004" target="_blank" rel="noopener" title="WhatsApp">W</a>
+          <a href="https://youtube.com/@romanarasheed-n8t" target="_blank" rel="noopener" title="YouTube">Y</a>
+          <a href="https://www.tiktok.com/@rohirasheed" target="_blank" rel="noopener" title="TikTok">T</a>
+        </div>
+      </div>
+      <form class="inquiry" onsubmit="event.preventDefault(); var n=document.getElementById('fName').value, p=document.getElementById('fPhone').value, c=document.getElementById('fCity').value, cat=document.getElementById('fCat').value, m=document.getElementById('fModel').value, msg=document.getElementById('fMsg').value; var text='Customer Inquiry%0AName: '+encodeURIComponent(n)+'%0APhone: '+encodeURIComponent(p)+'%0ACity: '+encodeURIComponent(c)+'%0ACategory: '+encodeURIComponent(cat)+'%0AModel: '+encodeURIComponent(m)+'%0AMessage: '+encodeURIComponent(msg); window.open('https://wa.me/923446664004?text='+text,'_blank');">
+        <div class="field-row">
+          <div><label for="fName">Full Name</label><input id="fName" type="text" required></div>
+          <div><label for="fPhone">Phone / WhatsApp Number</label><input id="fPhone" type="tel" placeholder="03001234567" required></div>
+        </div>
+        <div class="field-row">
+          <div><label for="fCity">City</label><input id="fCity" type="text" required></div>
+          <div>
+            <label for="fCat">Product Category</label>
+            <select id="fCat" required>
+              <option value="">Select a product category</option>
+              <option>LED TVs</option>
+              <option>Refrigerators</option>
+              <option>Washing Machines</option>
+              <option>Air Conditioners</option>
+              <option>Kitchen Hoods</option>
+              <option>Water Dispensers</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div><label for="fModel">Product Model</label><input id="fModel" type="text"></div>
+        <div><label for="fMsg">Your Message</label><textarea id="fMsg"></textarea></div>
+        <button class="btn btn-accent" type="submit">Submit Inquiry</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p><strong>Haier Sales &amp; Services</strong> — Product Information • Sales Assistance • Customer Support</p>
+  <p>This is an independent website for product information and sales assistance. It is not the official corporate website of Haier.</p>
+  <p>© 2026 Haier Sales &amp; Services. All Rights Reserved.</p>
+</footer>
+
+<a class="fab" href="https://wa.me/923446664004?text=Hello%2C%20I%20would%20like%20information%20about%20Haier%20products." target="_blank" rel="noopener">Chat on WhatsApp</a>
+
+</body>
+</html>
